@@ -1,0 +1,188 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  padding: 0.75rem 1rem;
+  background: #1a1a2e;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Landing page ─────────────────────────────────── */
+
+#landing {
+  max-width: 480px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#landing h1 {
+  font-size: 1.6rem;
+}
+
+#landing p {
+  color: #555;
+  line-height: 1.5;
+}
+
+#landing .error {
+  color: #c00;
+}
+
+#landing form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#landing input[type="text"] {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#landing button {
+  align-self: flex-start;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#landing button:hover {
+  background: #2e2e5e;
+}
+
+/* ── Canvas ───────────────────────────────────────── */
+
+#canvas-container {
+  flex: 1;
+  overflow: hidden;
+  background: #fafafa;
+  cursor: default;
+}
+
+#tree-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Dialog ───────────────────────────────────────── */
+
+dialog {
+  padding: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+  min-width: 280px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+dialog h2 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+dialog label {
+  font-size: 0.85rem;
+  color: #444;
+  margin-top: 0.25rem;
+}
+
+dialog input[type="text"],
+dialog select {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+dialog input[type="color"] {
+  height: 2rem;
+  width: 3.5rem;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.dialog-actions button {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.dialog-actions button[type="submit"] {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.dialog-actions button[type="submit"]:hover {
+  background: #2e2e5e;
+}
+
+.dialog-actions button[type="button"] {
+  background: #eee;
+  color: #333;
+}
+
+.dialog-actions button[type="button"]:hover {
+  background: #ddd;
+}
+
+.dialog-actions button.danger {
+  background: #e53935;
+  color: #fff;
+}
+
+.dialog-actions button.danger:hover {
+  background: #c62828;
+}

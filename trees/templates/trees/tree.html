@@ -1,0 +1,65 @@
+{% extends "trees/base.html" %}
+{% load static %}
+
+{% block title %}{{ tree.name }}{% endblock %}
+
+{% block content %}
+<div id="canvas-container">
+  <canvas id="tree-canvas"></canvas>
+</div>
+
+<dialog id="add-node-dialog">
+  <form id="add-node-form" method="dialog">
+    <h2>Add child node</h2>
+    <label for="add-label">Label</label>
+    <input id="add-label" type="text" name="label" required>
+    <label for="add-color">Background color</label>
+    <input id="add-color" type="color" name="color" value="#aaddff">
+    <label for="add-shape">Shape</label>
+    <select id="add-shape" name="shape">
+      <option value="rect">Rectangle</option>
+      <option value="circle">Circle</option>
+    </select>
+    <div class="dialog-actions">
+      <button type="submit">Add node</button>
+      <button type="button" id="add-cancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="edit-node-dialog">
+  <form id="edit-node-form" method="dialog">
+    <h2>Edit node</h2>
+    <label for="edit-label">Label</label>
+    <input id="edit-label" type="text" name="label" required>
+    <label for="edit-color">Background color</label>
+    <input id="edit-color" type="color" name="color">
+    <label for="edit-shape">Shape</label>
+    <select id="edit-shape" name="shape">
+      <option value="rect">Rectangle</option>
+      <option value="circle">Circle</option>
+    </select>
+    <div class="dialog-actions">
+      <button type="submit">Save</button>
+      <button type="button" id="edit-cancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="delete-confirm-dialog">
+  <p id="delete-confirm-msg"></p>
+  <div class="dialog-actions">
+    <button id="delete-confirm-ok" class="danger">Delete</button>
+    <button id="delete-confirm-cancel">Cancel</button>
+  </div>
+</dialog>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const TREE_DATA = {{ tree_json|safe }};
+  const ADD_NODE_URL = "{% url 'trees:add_node' tree_id=tree.id %}";
+</script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "trees/base.html" %}
+
+{% block title %}New Attack Tree{% endblock %}
+
+{% block content %}
+<div id="landing">
+  <h1>Attack Trees</h1>
+  <p>Start by naming your root node — it represents the top-level threat you are modelling.</p>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" action="{% url 'trees:index' %}">
+    {% csrf_token %}
+    <label for="label">Root node label</label>
+    <input id="label" type="text" name="label" placeholder="e.g. Compromise user account" required autofocus>
+    <button type="submit">Create tree</button>
+  </form>
+</div>
+{% endblock %}
